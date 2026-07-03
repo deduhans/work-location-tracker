@@ -69,4 +69,4 @@ The extension icon appears in your toolbar. The next time you open the browser, 
 
 ---
 
-*by Serhii Iliushenko*
+*by Serhii Iliushenko* — [MIT License](LICENSE)
