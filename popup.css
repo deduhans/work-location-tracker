@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 300px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #FFFFFF;
+  color: #1E293B;
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 8px;
+}
+
+.month-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.nav-btn:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.day-headers {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.day-header {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 0;
+}
+
+.day-header.weekend {
+  color: #CBD5E1;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  padding: 0 12px;
+}
+
+.day-cell {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  position: relative;
+  font-size: 12px;
+}
+
+.day-cell.editable {
+  cursor: pointer;
+}
+
+.day-cell.editable:hover {
+  filter: brightness(0.95);
+}
+
+.day-popover {
+  position: fixed;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 1000;
+  min-width: 128px;
+}
+
+.popover-btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: filter 0.1s;
+}
+
+.popover-btn:hover {
+  filter: brightness(0.94);
+}
+
+.popover-btn.home {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.popover-btn.office {
+  background: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.popover-btn.clear {
+  background: #F1F5F9;
+  color: #64748B;
+}
+
+.popover-btn.active {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+
+.day-cell.empty {
+  background: transparent;
+}
+
+.day-cell.other-month {
+  opacity: 0.25;
+}
+
+.day-cell.unlogged {
+  background: #F8FAFC;
+}
+
+.day-cell.unlogged.weekend {
+  background: transparent;
+}
+
+.day-cell.home {
+  background: #DCFCE7;
+}
+
+.day-cell.office {
+  background: #DBEAFE;
+}
+
+.day-cell.today {
+  outline: 2px solid #0F172A;
+  outline-offset: -2px;
+}
+
+.day-number {
+  font-size: 12px;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1;
+}
+
+.day-cell.home .day-number {
+  color: #15803D;
+  font-weight: 600;
+}
+
+.day-cell.office .day-number {
+  color: #1D4ED8;
+  font-weight: 600;
+}
+
+.day-cell.today .day-number {
+  font-weight: 700;
+}
+
+.day-indicator {
+  font-size: 9px;
+  line-height: 1;
+  margin-top: 2px;
+  letter-spacing: 0;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 16px 8px;
+  border-top: 1px solid #F1F5F9;
+  margin-top: 8px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.stat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.stat-dot.home {
+  background: #16A34A;
+}
+
+.stat-dot.office {
+  background: #2563EB;
+}
+
+.author {
+  text-align: center;
+  font-size: 11px;
+  color: #CBD5E1;
+  padding: 0 0 12px;
+}
+
+.today-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 12px 10px;
+  padding: 10px 12px;
+  background: #FFF7ED;
+  border: 1px solid #FED7AA;
+  border-radius: 10px;
+}
+
+.today-prompt-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #9A3412;
+}
+
+.today-prompt-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.today-prompt-btn {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.today-prompt-btn:hover {
+  opacity: 0.85;
+}
+
+.today-prompt-btn.home {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.today-prompt-btn.office {
+  background: #DBEAFE;
+  color: #1D4ED8;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Location Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="header">
+    <button class="nav-btn" id="prev-btn">&#8249;</button>
+    <span class="month-label" id="month-label"></span>
+    <button class="nav-btn" id="next-btn">&#8250;</button>
+  </div>
+
+  <div class="day-headers">
+    <div class="day-header">Mo</div>
+    <div class="day-header">Tu</div>
+    <div class="day-header">We</div>
+    <div class="day-header">Th</div>
+    <div class="day-header">Fr</div>
+    <div class="day-header weekend">Sa</div>
+    <div class="day-header weekend">Su</div>
+  </div>
+
+  <div class="calendar-grid" id="calendar-grid"></div>
+
+  <div id="today-prompt-container"></div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="author">by Serhii Iliushenko</div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
