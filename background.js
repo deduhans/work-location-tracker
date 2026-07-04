@@ -25,9 +25,9 @@ async function checkAndPrompt() {
 }
 
 chrome.runtime.onStartup.addListener(checkAndPrompt);
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
   chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
-  checkAndPrompt();
+  if (details.reason === 'install') checkAndPrompt();
 });
 
 chrome.storage.onChanged.addListener((changes, area) => {
